@@ -22,6 +22,10 @@ jobs:
           echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
 
+      - name: Generate docs from terminusdb repository
+        shell: bash
+        run: bash .ci/generate_docs.sh ${GITHUB_REF##*/}
+
       - name: Deploy to subdir 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
