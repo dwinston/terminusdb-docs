@@ -23,6 +23,7 @@ jobs:
         id: extract_branch
 
       - name: Generate docs from terminusdb repository
+        if: ${{ steps.extract_branch.outputs.branch != env.LATEST_RELEASE_BRANCH }}
         shell: bash
         run: bash .ci/generate_docs.sh ${GITHUB_REF##*/}
 
