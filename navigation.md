@@ -64,7 +64,6 @@
 - [Explanation](EXPLANATION.md)
   - [Query](Explanation/QUERY.md)
      - [Datalog - What's that?](Explanation/DATALOG.md)
-     - [Unification... What?](Explanation/unification.md)
   - [Data Modelling](Explanation/MODELLING.md)
      - [How should I model my data?](Explanation/MODELHOW.md)
      - [How do I use the model builder tool?](Explanation/MODELHOW02.md)
