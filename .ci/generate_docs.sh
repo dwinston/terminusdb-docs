@@ -6,11 +6,8 @@ FILES="docs/reference/ref.md docs/reference/repository.md docs/reference/system_
 DOCS_DIR=$(pwd)
 sudo apt install ronn
 git clone -b "$1" --single-branch https://github.com/terminusdb/terminusdb
-cd terminusdb
-TERMINUSDB_FOLDER=$(pwd)
-cd src/utils/jsonToMDConverter
+TERMINUSDB_FOLDER="$DOCS_DIR/terminusdb"
+cd .ci/jsonToMDConverter
 npm i
 cd "$TERMINUSDB_FOLDER"
-make docs
-cp $FILES "$DOCS_DIR/reference/"
-cd "$DOCS_DIR"
+node "$DOCS_DIR/.ci/jsonToMDConverter/script.js" "$DOCS_DIR/reference/"
