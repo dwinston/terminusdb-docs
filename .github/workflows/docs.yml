@@ -25,7 +25,7 @@ jobs:
       - name: Generate docs from terminusdb repository
         if: ${{ steps.extract_branch.outputs.branch != env.LATEST_RELEASE_BRANCH }}
         shell: bash
-        run: bash .ci/generate_docs.sh ${GITHUB_REF##*/}
+        run: bash .ci/generate_docs.sh ${GITHUB_REF##*/} && rm -rf terminusdb
 
       - name: Deploy to subdir 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
