@@ -6,7 +6,7 @@
 
 <img align="left" src="https://assets.terminusdb.com/images/Laptop.png" width="256px"/>
 
-TerminusDB is an open-source graph database and document store. It is designed for collaboratively building data-intensive applications and knowledge graphs. If you want to collaborate with colleagues or build data-intensive applications, nothing will make you more productive.
+TerminusDB is an open-source graph database and document store. It's designed for collaboratively building data-intensive applications and knowledge graphs. If you want to collaborate with colleagues or build data-intensive applications, nothing will make you more productive.
 
 It is a native revision control database that is architecturally similar to Git and other distributed version control systems.
 
