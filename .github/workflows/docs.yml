@@ -6,6 +6,7 @@ on:
       - rc
       - canary
       - v*
+      - next
 
 env:
   LATEST_RELEASE_BRANCH: v4.2
@@ -48,3 +49,4 @@ jobs:
             rc
             canary
             v*
+            next
