@@ -485,7 +485,7 @@ This is the WOQL schema. It gives a complete specification of the syntax of the 
 | Property | Range  | Desc |
 | -------- | ------ | ---- |
 | `query` | `Query` | The subquery with a new default graph. |
-| `graph_filter` | `xsd:string` | The graph filter: 'schema' or 'instance' or '*'. |
+| `graph` | `xsd:string` | The graph filter: 'schema' or 'instance' or '*'. |
 
 ---
 
