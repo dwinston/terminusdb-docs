@@ -18,8 +18,8 @@ The TerminusDB client package contains the two core components outlined below. T
 ```bash
 # using terminusdb-client-js dev version
 git clone https://github.com/terminusdb/terminusdb-client-js.git
-git checkout dev
 cd terminusdb-client-js
+git checkout dev
 npm i
 # then in your project
 npm link ../terminusdb-client-js
