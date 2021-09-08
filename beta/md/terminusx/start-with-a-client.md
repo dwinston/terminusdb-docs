@@ -214,9 +214,9 @@ To use the TerminusX document interface, [create a schema](#create-a-schema) and
 
 - [Add documents](#code-Add-documents)
 
-- [Get documents](#get-documents)
+- [Get documents](#code-get-documents)
 
-- [Query documents](#query-documents)
+- [Query documents](#code-query-documents)
 
 #### Data: Player roster
 
