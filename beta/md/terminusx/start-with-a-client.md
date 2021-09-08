@@ -216,6 +216,8 @@ To use the TerminusX document interface, [create a schema](#create-a-schema) and
 
 - [Get documents](#get-documents)
 
+- [Query documents](#query-documents)
+
 #### Data: Player roster
 
 ```text
@@ -353,7 +355,6 @@ client.insert_document(objects, commit_msg = f"Inserting player data")
 
 <!-- tabs:end -->
 
-
 #### Code: Get documents
 
 Get a list of documents or specific documents added to the schema 
@@ -457,7 +458,6 @@ Specific document
 ```
 
 <!-- tabs:end -->
-
 
 #### Code: Query documents
 
