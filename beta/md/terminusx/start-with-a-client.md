@@ -33,7 +33,7 @@ Using a virtural environment is highly recommended. See full details in [Python 
 
 **Create a new virtual environment call terminusdb-env**
 
-```
+```bash
 python3 -m venv terminusdb-env
 ```
 
@@ -41,19 +41,19 @@ python3 -m venv terminusdb-env
 
  - for Unix/macOS
 
-```
+```bash
 source terminusdb-env/bin/activate
 ```
 
 - for Windows
 
-```
+```bash
 .\terminusdb-env\Scripts\activate
 ```
 
 **Installing canary version of the Python client**
 
-```
+```bash
 python3 -m pip install git+ssh://git@github.com:terminusdb/terminusdb-client-python.git@canary
 ```
 
