@@ -2,7 +2,7 @@
 
 > **On this page:** A step-by-step guide with examples to get started with JavaScript or Python client.  
 
-The TerminusDB client package contains the two core components outlined below. This guide demonstrates the basic use of each component. Refer to [TerminusDB JavaScript Client](https://terminusdb.github.io/terminusdb-client-js/) or [TerminusDB Python Client](https://terminusdb.github.io/terminusdb-client-python/dev/) for detailed documentation.  
+The TerminusDB client package contains the two core components outlined below. This guide demonstrates the basic use of each component. Refer to [TerminusDB JavaScript Client](https://terminusdb.github.io/terminusdb-client-js/) or [TerminusDB Python Client](https://terminusdb.github.io/terminusdb-client-python/) for detailed documentation.  
 
 - [Connect WOQLClient](#connect-with-WOQLClient) to connect to TerminusX.
 
@@ -27,7 +27,7 @@ npm link ../terminusdb-client-js
 
 ### **Python**
 
-<i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Install the canary version of the Python client using pip.
+<i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Install the Python client using pip.
 
 Using a virtural environment is highly recommended. See full details in [Python documentation](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/).
 
@@ -51,10 +51,10 @@ source terminusdb-env/bin/activate
 .\terminusdb-env\Scripts\activate
 ```
 
-**Installing canary version of the Python client**
+**Installing the Python client**
 
 ```bash
-python3 -m pip install git+ssh://git@github.com:terminusdb/terminusdb-client-python.git@canary
+python3 -m pip install terminusdb-client
 ```
 
 <!-- tabs:end -->
