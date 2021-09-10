@@ -1,10 +1,8 @@
 # Start with a Client API
 
-> **On this page:** A step-by-step guide with examples to get started with JavaScript or Python client.  
+> **On this page:** A step-by-step guide with examples to install and get started with a JavaScript or Python client.  
 
-The TerminusDB client package contains the two core components outlined below. This guide demonstrates the basic use of each component. Refer to [TerminusDB JavaScript Client](https://terminusdb.github.io/terminusdb-client-js/) or [TerminusDB Python Client](https://terminusdb.github.io/terminusdb-client-python/) for detailed documentation.  
-
-- [Connect WOQLClient](#connect-with-WOQLClient) to connect to TerminusX.
+This guide demonstrates the basic use of the **WOQLClient** library to connect to TerminusX with a JavaScript or Python client. Refer to [TerminusDB JavaScript Client](https://terminusdb.github.io/terminusdb-client-js/) or [TerminusDB Python Client](https://terminusdb.github.io/terminusdb-client-python/) for detailed documentation.  
 
 ## Install WOQLClient
 
