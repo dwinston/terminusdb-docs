@@ -1,24 +1,45 @@
-## TerminusDB Client Python
+## TerminusX Client Python
 
-The terminusdb_client library consists of 4 major components: WOQLClient, WOQLQuery, WOQLViews and WOQLDataFrame (optional, included only if installed with the [dataframe] option). In this guide, we will show the basic usage of each component. For detail documentation of the Python client, please refer to the [full documentation](https://terminusdb.github.io/terminusdb-client-python/). For a full example of using all the code shown below, see the [bike example in Jupyter notebook](https://github.com/terminusdb/terminusdb-tutorials/blob/master/bike-tutorial/python/Create%20TerminusDB%20Graph%20with%20Python%20Client.ipynb).
+This quick-start guide to the Python client is designed to get you up
+and running quickly on TerminusX. If you want to explore the full
+client library, see our [Python Client
+Documentation](https://terminusdb.github.io/terminusdb-client-python/dev/
+) for more details.
+
 
 ### WOQLClient
 
-A connection object that allows you to connect with the TerminusDB (local or remote) with basic auth. To create an client object, you will have to provide a URL to the server.
+A connection object that allows you to connect to TerminusX (or
+TerminusDB). To create an client object, you will have to provide a
+URL to the server. You can get a code snippet from TerminusX in your
+profile page which will have all of these variables filled out for
+you..
+
+NOTE: [You will need to have an access key set](../UI.md). After you
+have done this come back here with your copied python snippet.
+
+
+
+At the begining of your python script you can simply write the snippet
+that you have recieved. For instance:
 
 ```python
 from terminusdb_client import WOQLClient
-client = WOQLClient("https://127.0.0.1:6363/, insecure=True")
+user = f"jimbo"
+team = f"logicistics" # My Team name
+endpoint = f"https://cloud-dev.dcm.ist/{team}/"
+client = WOQLClient(endpoint)
+client.connect(user=user,team=team)
 ```
 
-For connection to a local server, we also have to set the insecure flag to True.
-
-The most common way to use the client is to 1) connected to an existing database or 2) create a brand new database.
+The most common way to use the client is to:
+1. connected to an existing database or
+2. create a brand new database.
 
 To connect to an existing database:
 
 ```python
-client.connect(key="root", account="admin", user="admin", db="example_db")
+client.connect(team=team, user="admin", db="example_db")
 ```
 
 To create a new database:
@@ -27,55 +48,81 @@ client.connect(key="root", account="admin", user="admin")
 client.create_database("example_db")
 ```
 
-### WOQLQuery
+### Document Interface
 
-The WOQLQuery object provides a query building tool for WOQL query, instead of JSON-LD -- the native format of WOQL. Most WOQLQuery object methods return a WOQLQuery object that is chainable, one of the exceptions is `execute` which will send the query built with the client provided.
+Once we have created a database or connected to an existing one, we
+will need to put some data in it. First we need to add a schema. (See
+[Documents](../Explanation/DOCUMENTS.md) for a more general overview).
 
-```python
-from terminusdb_client import WOQLQuery as wq
-conditions = [wq().triple("v:Journey", "type", "scm:Journey"),
-              wq().triple("v:Journey", "start_station", "v:Start"),
-              wq().opt().triple("v:Start", "label", "v:Start_Label"),
-              wq().triple("v:Journey", "end_station", "v:End"),
-              wq().opt().triple("v:End", "label", "v:End_Label"),
-              wq().triple("v:Journey", "journey_bicycle", "v:Bike")]
-query = wq().select("v:Start", "v:Start_Label", "v:End",  "v:End_Label").woql_and(*conditions)
-result = query.execute(client)
-```
+Supposing the data I'm initially interested in is the following player
+roster.
 
-### WOQLViews
+| name | position |
+|---|---|
+| George | Centre Back |
+| Doug | Full Back |
+| Karen | Centre Forward |
 
-The WOQLViews object provides a tool for visualizing your query result in an interactive graph in Jupyter notebook. You can customize the look of the nodes and the edges.
+The schema which corresponds to this might look as follows:
 
 ```python
-from terminusdb_client import WOQLView
-view = WOQLView()
-view.edges(["Start", "End"])
-view.node("Start_Label", "End_Label").hidden(True)
-view.node("End").color([53,105,53]).icon({"color": [255,0,0], "unicode": "🏁"}).text("v:End_Label").size(25).charge(-10)
-view.node("Start").icon({"color": [255,0,0], "label": True}).text("v:Start_Label").size(25).collision_radius(10)
-view.edge("Start", "End").weight(100)
-view.show(result)
+schema = { "@type" : "Class",
+           "@id" : "Player",
+           "@key" : {"@type" : "Lexical", "@fields" : ["name"]},
+           "name" : "xsd:string",
+           "position" : "xsd:string" }
 ```
-which will result in something like this
 
- <iframe src="https://assets.terminusdb.com/docs/bike-graph.html" width="100%" height="600px"></iframe>
+This tells us that we have an object with `name` and `position` and
+which can always be uniquely identified by `name`.
 
-### WOQLDataFrame
-
-WOQLDataFrame is an optional component in `terminusdb-client`. If you would like to include the installation of the DataFrame module, you need to [install it with the [dataframe] option when you do pip install](https://terminusdb.github.io/terminusdb/#/Install/PYTHON_INSTALL?id=install-using-pip).
-
-With WOQLDataFrame you can easily convert the result from the query, which is in JSON format, into a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html).
+We can load this class into the schema with:
 
 ```python
-from terminusdb_client import WOQLDataFrame
-WOQLDataFrame.query_to_df(result)
+client.insert_document(schema,
+                       graph_type="schema",
+                       commit_msg = "Adding Player Schema")
 ```
 
-which will give you something like
+Once loaded, we can start submitting documents that correspond to this
+schema.
 
-![bike dataframe](https://assets.terminusdb.com/docs/bike-dataframe.png)
+The above table would be the following:
 
+```python
+objects = [{"@type" : "Player",
+            "name" : "George",
+            "position" : "Centre Back"},
+           {"@type" : "Player",
+            "name" : "Doug",
+            "position" : "Full Back"},
+           {"@type" : "Player",
+            "name" : "Karen",
+            "position" : "Centre Forward"}]
+client.insert_document(objects,commit_msg = f"Inserting player data")
+```
 
+Now you can retrieve the documents. We could search for a suitable
+*full back* with the following:
 
+```python
+documents = client.query_document({"@type" : "Player",
+                                   "position" : "Full Back})
+```
 
+The `documents` variable is actually an iterator, but we can create a
+list with:
+
+```
+matches = list(documents)
+```
+
+`matches` will have the value:
+
+```python
+[{"@type" : "Player",
+  "name" : "Doug",
+  "position" : "Full Back"}]
+```
+
+You should now be ready to make more elaborate documents!
