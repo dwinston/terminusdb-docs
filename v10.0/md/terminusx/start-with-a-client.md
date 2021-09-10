@@ -258,7 +258,7 @@ const schema = { "@type" : "Class",
 
 ```python
 
-from terminusdb_client.woql_schema import WOQLSchema, DocumentTemplate, LexicalKey
+from terminusdb_client.woqlschema import WOQLSchema, DocumentTemplate, LexicalKey
 
 schema = WOQLSchema()
 
