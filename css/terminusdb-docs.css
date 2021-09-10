@@ -99,3 +99,11 @@ a.tdb-k:hover   { color: lightblue; text-decoration: underline; }
     margin-left : auto;
     margin-right: auto;
 }
+
+.tdb-msg
+{
+    border-radius   :3px;
+    background-color:lightblue;
+    color           :black;
+    padding         :5px;
+}

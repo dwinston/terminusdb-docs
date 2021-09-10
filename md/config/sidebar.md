@@ -1,3 +1,13 @@
+<br>
+
+<div class="tdb-msg">
+This is a beta version of documents specifically for getting started with TerminusX. For assistance, feel free to contact us on discord.
+
+<a target="new" title="Contact us on Discord..." href="https://bit.ly/2Gnleax"><img class="tdb-ico" src="img/ico/terminusdb-icon-discord.png"/></a>
+</div>
+
+<br>
+
 <img class="tdb-i" src="img/ico/terminusdb-icon-quick-links.png" title="Quick start"/><span class="tdb-f">TerminusX Quick Start</p>
 
 - [Quick start overview](terminusx/quick-start-overview)
