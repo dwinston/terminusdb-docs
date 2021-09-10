@@ -4,8 +4,6 @@
 
 The TerminusX Documentation interface enables you to interact with TerminusX using JSON documents. The links below help you get started.
 
-!> TerminusX and TerminusDB are used interchangeably but refer to the same back-end product.
-
 ## Steps to get started
 
 [Get your API key](terminusx/get-your-api-key) to use TerminusX.
