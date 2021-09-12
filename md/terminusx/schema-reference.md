@@ -131,7 +131,7 @@ The `@schema` keyword specifies the default URI expansion to use for all element
 
 ### @base
 
-`@base` specifies the default URI expansion used for all elements of instance data. In the previous [schema definition](code-context-keywords-@schema), and given the [document in the instance graph]() example below, the id `NamedQuery_my_query` expands to `terminusdb://woql/data/NamedQuery_my_query`. 
+`@base` specifies the default URI expansion used for all elements of instance data. In the previous [schema definition](code-context-keywords-@schema), and given the [document in the instance graph]() example below, the id `NamedQuery_my_query` expands to `terminusdb://woql/data/NamedQuery/my_query`. 
 
 #### Code: A document in the instance graph 
 
@@ -139,7 +139,7 @@ The `@schema` keyword specifies the default URI expansion to use for all element
 
 { 
     "@type"     : "NamedQuery",
-    "@id"       : "NamedQuery_my_query",
+    "@id"       : "NamedQuery/my_query",
     "name"      : "my_query",
     "query"     : 
     { 
@@ -185,7 +185,7 @@ The `@type` of the object. At the schema level, this is one of: `Enum`, `Class`,
 { 
     "@id"         : "Dog",
     "@type"       : "Class",
-    "@base"       : "Dog_",
+    "@base"       : "Dog/",
     "@key"        : 
     { 
         "@type"   : "Lexical",
@@ -209,7 +209,7 @@ The `@type` of the object. At the schema level, this is one of: `Enum`, `Class`,
 }
 { 
     "@type"       : "Dog",
-    "@id"         : "Dog_Cerberus",
+    "@id"         : "Dog/Cerberus",
     "name"        : "Cerberus",
     "hair_colour" : "Grey" 
 }
@@ -219,7 +219,7 @@ The `@type` of the object. At the schema level, this is one of: `Enum`, `Class`,
 
 #### Enum
 
-An `Enum` is a non-standard class in which each instance is a simple URI with no additional structure. To be a member of the class, you must be one of the referent URIs. An `Enum` example with an extension `Blue` is s shown below. In the database, the actual URI for an Enum is expanded with the preceding type name, so the `Blue` extension becomes `http://s#PrimaryColour_Blue`
+An `Enum` is a non-standard class in which each instance is a simple URI with no additional structure. To be a member of the class, you must be one of the referent URIs. An `Enum` example with an extension `Blue` is s shown below. In the database, the actual URI for an Enum is expanded with the preceding type name, so the `Blue` extension becomes `http://s#PrimaryColour/Blue`
 
 #### Code: An example of an enum class 
 
@@ -228,7 +228,7 @@ An `Enum` is a non-standard class in which each instance is a simple URI with no
 { 
     "@type"   : "Enum",
     "@id"     : "PrimaryColour",
-    "@values" : 
+    "@value" : 
     [
         "Red", 
         "Blue", 
@@ -268,7 +268,7 @@ Examples below of a schema with a TaggedUnion and a concrete [TaggedUnion class 
 { 
     "@id"       : "BinaryTree",
     "@type"     : "TaggedUnion",
-    "@base"     : "binary_tree_",
+    "@base"     : "binary_tree/",
     "@key"      : 
     { 
         "@type" : "ValueHash" 
@@ -364,7 +364,7 @@ Given the [simple document definition](#code-a-simple-document-defintion) below,
 { 
     "@id"           : "Person",
     "@type"         : "Class",
-    "@base"         : "Person_",
+    "@base"         : "Person/",
     "@key"          : 
     {
         "@type"     : "Lexical",
