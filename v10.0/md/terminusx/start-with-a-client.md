@@ -256,7 +256,7 @@ schema = WOQLSchema()
 
 class Player(DocumentTemplate):
     _schema = schema
-    _key = LexicalKey("name")
+    _key = LexicalKey(["name"])
     name: str
     position: str
 
@@ -370,19 +370,19 @@ async getDoc (){
 
 [
   {
-    '@id'   : 'Player_Doug',
+    '@id'   : 'Player/Doug',
     '@type' : 'Player',
     name    : 'Doug',
     position: 'Full Back'
   },
   {
-    '@id'   : 'Player_George',
+    '@id'   : 'Player/George',
     '@type' : 'Player',
     name    : 'George',
     position: 'Center Back'
   },
   {
-    '@id'   : 'Player_Karen',
+    '@id'   : 'Player/Karen',
     '@type' : 'Player',
     name    : 'Karen',
     position: 'Center Forward'
@@ -407,7 +407,7 @@ print(list(documents))
 print("=============")
 
 # getting a specific document by id
-play_doug = client.get_document("Player_Doug")
+player_doug = client.get_document("Player/Doug")
 print("Specific document")
 print(player_doug)
 
