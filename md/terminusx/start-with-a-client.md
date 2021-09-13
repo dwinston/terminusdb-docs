@@ -283,7 +283,7 @@ client.addDocument(schema, { graph_type: "schema" })
 
 ### **Python**
 
-<i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Add the schema object to a document using `insert_document`.
+<i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Commit the schema object to the database.
 
 ```python
 
