@@ -10,17 +10,11 @@ This guide demonstrates the basic use of the **WOQLClient** library to connect t
 
 ### **JavaScript**
 
-<i class="tdb-i">![info](../../img/ico/terminusdb-icon-node-js.png)</i>Install a WOQLClient in JavaScript
+<i class="tdb-i">![info](../../img/ico/terminusdb-icon-node-js.png)</i>Install the TerminusDB JavaScript client by adding it as a dependency in your Node project.
 
 
 ```bash
-# using terminusdb-client-js dev version
-git clone https://github.com/terminusdb/terminusdb-client-js.git
-cd terminusdb-client-js
-git checkout dev
-npm i
-# then in your project
-npm link ../terminusdb-client-js
+npm install --save @terminusdb/terminusdb-client
 ```
 
 ### **Python**
