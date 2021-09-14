@@ -8,7 +8,7 @@ This is a beta version of documents specifically for getting started with Termin
 
 <br>
 
-<img class="tdb-i" src="img/ico/terminusdb-icon-quick-links.png" title="Quick start"/><span class="tdb-f">TerminusX Quick Start</p>
+<img class="tdb-i" src="img/ico/terminusdb-icon-quick-links.png" title="Quick start"/><span class="tdb-f">TerminusX Quick Start</span>
 
 - [Quick start overview](terminusx/quick-start-overview)
 - [Get your API key](terminusx/get-your-api-key)
@@ -16,7 +16,7 @@ This is a beta version of documents specifically for getting started with Termin
 
 <br>
 
-<img class="tdb-i" src="img/ico/terminusdb-icon-concepts.png" title="Reference guides"/><span class="tdb-f">Reference Guides</p>
+<img class="tdb-i" src="img/ico/terminusdb-icon-concepts.png" title="Reference guides"/><span class="tdb-f">Reference Guides</span>
 
 - [CURL reference](terminusx/curl-reference)
 - [Schema reference](terminusx/schema-reference)
@@ -24,7 +24,7 @@ This is a beta version of documents specifically for getting started with Termin
 
 <br>
 
-<img class="tdb-i" src="img/ico/terminusdb-icon-reference-guides.png" title="Explanations"/><span class="tdb-f">Explanations</p></div>
+<img class="tdb-i" src="img/ico/terminusdb-icon-reference-guides.png" title="Explanations"/><span class="tdb-f">Explanations</span>
 
 - [Documents](terminusx/documents)
 
