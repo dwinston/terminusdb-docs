@@ -1,20 +1,36 @@
-# CURL Reference
+# Curl Examples
 
-> **On this page:** Document interface examples using CURL.
+> **On this page:** Examples using [curl](https://curl.se/) to access the document interface.
 
-## Examples
+The example commands below refer to a team `exampleteam` with a data product
+`exampledb`.
 
-Some examples use a hypothetical database `admin/foo` (database named `foo` in organization `admin`.)
+[Get your API key](terminusx/get-your-api-key) to use TerminusX. The string
+should be exported with:
+
+```shell
+export TERMINUSDB_ACCESS_TOKEN='...'
+```
+
+To keep the commands short, we also use an environment variable for the URL base
+(host plus any route prefix). Here is an example:
+
+```shell
+export TERMINUSDB_BASE='https://cloud-dev.dcm.ist/exampleteam'
+```
 
 ### Submit a new schema, replacing the existing schema
 
-Use a hypothetical JSON file `/tmp/testschema.json` containing a schema.
+Use a hypothetical JSON file `exampleschema.json` containing a schema.
 
 ```shell
 
-cat /tmp/testschema.json | \
-    curl -X POST -k 'http://localhost:6363/api/document/admin/foo?graph_type=schema&author=me&message=hallo&full_replace=true' \
-        --data-binary @- -H 'Content-Type: application/json'
+cat exampleschema.json | \
+curl -X POST \
+  "$TERMINUSDB_BASE/api/document/Something/exampledb?graph_type=schema&author=me&message=hallo&full_replace=true" \
+  -H "Authorization: Bearer $TERMINUSDB_ACCESS_TOKEN" \
+  -H 'Content-Type: application/json' \
+  --data-binary @-
 
 
 ```
@@ -25,9 +41,12 @@ cat /tmp/testschema.json | \
 
 ```shell
 
-cat /tmp/testdata.json | \
-    curl -X POST -k 'http://localhost:6363/api/document/admin/foo?author=me&message=hallo' \
-        --data-binary @- -H 'Content-Type: application/json'
+cat exampledata.json | \
+curl -X POST \
+  "$TERMINUSDB_BASE/api/document/exampleteam/exampledb?author=me&message=hallo" \
+  -H "Authorization: Bearer $TERMINUSDB_ACCESS_TOKEN" \
+  -H 'Content-Type: application/json' \
+  --data-binary @-
 
 
 ```
@@ -38,14 +57,16 @@ Note the `graph_type` is not specified in the first example. Explicitly requesti
 
 ```shell
 
-curl -k 'http://localhost:6363/api/document/admin/foo'
+curl "$TERMINUSDB_BASE/api/document/exampleteam/exampledb" \
+  -H "Authorization: Bearer $TERMINUSDB_ACCESS_TOKEN"
 
 
 ```
 
 ```shell
 
-curl -k 'http://localhost:6363/api/document/admin/foo?graph_type=instance'
+curl "$TERMINUSDB_BASE/api/document/exampleteam/exampledb?graph_type=instance" \
+  -H "Authorization: Bearer $TERMINUSDB_ACCESS_TOKEN"
 
 
 ```
@@ -54,7 +75,8 @@ curl -k 'http://localhost:6363/api/document/admin/foo?graph_type=instance'
 
 ```shell
 
-curl -k 'http://localhost:6363/api/document/admin/foo?type=Person'
+curl "$TERMINUSDB_BASE/api/document/exampleteam/exampledb?type=Person" \
+  -H "Authorization: Bearer $TERMINUSDB_ACCESS_TOKEN"
 
 
 ```
@@ -63,8 +85,8 @@ curl -k 'http://localhost:6363/api/document/admin/foo?type=Person'
 
 ```shell
 
-curl -k \
-    'http://localhost:6363/api/document/admin/foo?graph_type=instance?id=Person_Robin_1995-09-29'
+curl "$TERMINUSDB_BASE/api/document/exampleteam/exampledb?graph_type=instance?id=Person_Robin_1995-09-29" \
+  -H "Authorization: Bearer $TERMINUSDB_ACCESS_TOKEN"
 
 
 ```
@@ -73,16 +95,8 @@ curl -k \
 
 ```shell
 
-curl -k 'http://localhost:6363/api/document/admin/foo?skip=3&count=5'
-
-
-```
-
-### Get a list of instance documents, with each JSON object on its own line
-
-```shell
-
-curl -k 'http://localhost:6363/api/document/admin/foo?minimized=true'
+curl "$TERMINUSDB_BASE/api/document/exampleteam/exampledb?skip=3&count=5" \
+  -H "Authorization: Bearer $TERMINUSDB_ACCESS_TOKEN"
 
 
 ```
@@ -91,7 +105,8 @@ curl -k 'http://localhost:6363/api/document/admin/foo?minimized=true'
 
 ```shell
 
-curl -k 'http://localhost:6363/api/document/admin/foo?as_list=true'
+curl "$TERMINUSDB_BASE/api/document/exampleteam/exampledb?as_list=true" \
+  -H "Authorization: Bearer $TERMINUSDB_ACCESS_TOKEN"
 
 
 ```
@@ -100,8 +115,9 @@ curl -k 'http://localhost:6363/api/document/admin/foo?as_list=true'
 
 ```shell
 
-curl -X DELETE -k \
-    'http://localhost:6363/api/document/admin/foo?uthor=me&message=blah&id=Person_1adfe57f9a2285da051445a3cf6056ef06dc1b7a'
+curl -X DELETE \
+  "$TERMINUSDB_BASE/api/document/exampleteam/exampledb?uthor=me&message=blah&id=Person_1adfe57f9a2285da051445a3cf6056ef06dc1b7a" \
+  -H "Authorization: Bearer $TERMINUSDB_ACCESS_TOKEN"
 
 
 ```
