@@ -255,7 +255,9 @@ subdocuments, or to other documents.
 With both documents and subdocuments and references to other documents, we can have the best of both worlds: document storage and knowledge graph. Visualizing what this means, however, requires a bit of
 experience.
 
-![](Contact-Graph-Diagram.jpg)
+#### Diagram: Contact graph
+
+![](../../img/diagrams/Contact-Graph-Diagram.jpg)
 
 In the diagram above we have an example that draws boundaries around
 what constitutes a document and a subdocument. The schema which
