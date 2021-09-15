@@ -150,7 +150,7 @@
     {
         basePath      : `md/`,
         homepage      : 'terminusx/quick-start-overview.md',
-        loadSidebar   : 'config/sidebar.md',
+        loadSidebar   : true,
         loadFooter    : 'config/footer.md',
         onlyCover     : true,
         auto2top      : true,
@@ -165,6 +165,10 @@
           buttonText : 'Copy',
           errorText  : 'Error',
           successText: 'Done'
+        },
+        alias:
+        {
+          '.*/_sidebar.md': '/config/sidebar.md'
         },
         plugins: 
         [
