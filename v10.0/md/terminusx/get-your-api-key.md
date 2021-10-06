@@ -21,10 +21,7 @@ Assign your key to environment variable `TERMINUSDB_ACCESS_TOKEN`. An example in
 #### Code: API key environment configuration
 
 ```bash
-
 export TERMINUSDB_ACCESS_TOKEN="my API key here"
-
-
 ```
 
 You are now ready to use your client!

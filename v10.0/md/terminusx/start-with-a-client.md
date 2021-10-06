@@ -12,7 +12,6 @@ This guide demonstrates the basic use of the **WOQLClient** library to connect t
 
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-node-js.png)</i>Install the TerminusDB JavaScript client by adding it as a dependency in your Node project.
 
-
 ```bash
 npm install --save @terminusdb/terminusdb-client
 ```
@@ -76,7 +75,6 @@ Define and initialize a WOQLClient, and connect to a database using the example 
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-node-js.png)</i>Define and initialize a WOQLClient in JavaScript using the package `@terminusdb/terminusdb-client`
 
 ```javascript
-
 const TerminusDBClient = require("@terminusdb/terminusdb-client");
 
 const client = new TerminusDBClient.WOQLClient("https://cloud.terminusdb.com/cloudabc/",
@@ -91,7 +89,6 @@ client.connect().then((result)=>{
     console.error(err);
 })
 
-
 ```
 
 ### **Python**
@@ -99,7 +96,6 @@ client.connect().then((result)=>{
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Define and initialize a WOQLClient in Python.
 
 ```python
-
 from terminusdb_client import WOQLClient
 user     = "jimbo"
 team     = "logicistics" # My team name.
@@ -107,8 +103,6 @@ endpoint = f"https://cloud.terminusdb.com/{team}/"
 client   = WOQLClient(endpoint)
 
 client.connect(user=user, team=team, use_token=True)
-
-
 ```
 
 <!-- tabs:end -->
@@ -130,14 +124,11 @@ Connect to an existing database using the example below.
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-node-js.png)</i>Connect to a database.
 
 ```javascript
-
 client.connect().then(()=>{
     client.db('ExampleDatabase');
 }).catch((err)=>{
     console.error(err);
 });
-
-
 ```
 
 ### **Python**
@@ -145,9 +136,7 @@ client.connect().then(()=>{
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Connect to a database.
 
 ```python
-
 client.connect(team=team, user="admin", db="example_db", use_token=True)
-
 
 ```
 
@@ -166,7 +155,6 @@ Create a new database using the example below.
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-node-js.png)</i>Create a database.
 
 ```javascript
-
 client.connect().then(async()=>{
     await client.createDatabase('ExampleDatabase', 
     {
@@ -176,8 +164,6 @@ client.connect().then(async()=>{
 }).catch((err)=>{
     console.error(err);
 });
-
-
 ```
 
 ### **Python**
@@ -185,16 +171,12 @@ client.connect().then(async()=>{
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Create a database.
 
 ```python
-
 client.connect(team=team, user="admin", use_token=True)
 
 client.create_database("example_db")
-
-
 ```
 
 <!-- tabs:end -->
-
 
 ### Use the document interface 
 
@@ -213,14 +195,11 @@ To use the TerminusX document interface, [create a schema](#create-a-schema) and
 #### Data: Player roster
 
 ```text
-
 name   | position
 ------ | --------
 George | Center Back
 Doug   | Full Back
 Karen  | Center Forward
-
-
 ```
 
 #### Code: Define a schema
@@ -234,14 +213,11 @@ Define a schema object with properties `name` and `position`. The object is uniq
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-node-js.png)</i>Define a schema.
 
 ```javascript
-
 const schema = { "@type" : "Class",
                  "@id"   : "Player",
                  "@key"  : { "@type": "Lexical", "@fields": ["name"] },
                  name    : "xsd:string",
                  position: "xsd:string" };
-
-
 ```
 
 ### **Python**
@@ -249,7 +225,6 @@ const schema = { "@type" : "Class",
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Define a schema.
 
 ```python
-
 from terminusdb_client.woqlschema import WOQLSchema, DocumentTemplate, LexicalKey
 
 schema = WOQLSchema()
@@ -259,7 +234,6 @@ class Player(DocumentTemplate):
     _key = LexicalKey(["name"])
     name: str
     position: str
-
 ```
 
 <!-- tabs:end -->
@@ -275,10 +249,7 @@ Add the schema object to the database.
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-node-js.png)</i>Add the schema object to a document using `addDocument`.
 
 ```javascript
-
 client.addDocument(schema, { graph_type: "schema" })
-
-
 ```
 
 ### **Python**
@@ -286,9 +257,7 @@ client.addDocument(schema, { graph_type: "schema" })
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Commit the schema object to the database.
 
 ```python
-
 schema.commit(client, commit_msg = "Adding Player Schema")
-
 ```
 
 <!-- tabs:end -->
@@ -304,7 +273,6 @@ Once added, Add documents corresponding to the schema.
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-node-js.png)</i>Add documents to the schema using `addDocument`.
 
 ```javascript
-
 const objects = [
     {
         "@type" : "Player",
@@ -324,8 +292,6 @@ const objects = [
 ];
         
 client.addDocument(objects)
-
-
 ```
 
 ### **Python**
@@ -333,7 +299,6 @@ client.addDocument(objects)
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Add documents to the schema using `insert_document`.
 
 ```python
-
 objects = [
     Player(name="George", position="Centre Back"),
     Player(name="Doug", position="Full Back"),
@@ -341,8 +306,6 @@ objects = [
     ]
 
 client.insert_document(objects, commit_msg = f"Inserting player data")
-
-
 ```
 
 <!-- tabs:end -->
@@ -358,16 +321,13 @@ Get a list of documents or specific documents added to the schema
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-node-js.png)</i>Get a list of documents using `getDocument` `as_list`. Results, stored in `document`, are shown further below. 
 
 ```javascript
-
 async getDoc (){
   const documents = await client.getDocument({ as_list: "true" });
   console.log(documents)
 }
-
 ```
 
 ```results
-
 [
   {
     '@id'   : 'Player/Doug',
@@ -388,8 +348,6 @@ async getDoc (){
     position: 'Center Forward'
   }
 ]
-
-
 ```
 
 ### **Python**
@@ -397,7 +355,6 @@ async getDoc (){
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Get a specific document using `query_document`. Results, stored in `matches`, are shown further below.  
 
 ```python
-
 documents = client.get_all_documents()
 
 # documents comes back as a iterable that can be convert into a list
@@ -410,12 +367,9 @@ print("=============")
 player_doug = client.get_document("Player/Doug")
 print("Specific document")
 print(player_doug)
-
-
 ```
 
 ```results
-
 All documents
 [
   {
@@ -445,8 +399,6 @@ Specific document
     name    : 'Doug',
     position: 'Full Back'
   }
-
-
 ```
 
 <!-- tabs:end -->
@@ -462,23 +414,17 @@ Get a list of documents that matches the query
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-node-js.png)</i>Get a list of documents using `getDocument` `as_list`. Results, stored in `document`, are shown further below. 
 
 ```javascript
-
 const query = {
     "type": "Player",
     "query": { "position": "Full Back" },
    }
   client.queryDocument(query,{"as_list":true});
-
-
 ```
 
 ```results
-
 [{"@type" : "Player",
   "name" : "Doug",
   "position" : "Full Back"}]
-
-
 ```
 
 ### **Python**
@@ -486,23 +432,17 @@ const query = {
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Get a specific document using `query_document`. Results, stored in `matches`, are shown further below.  
 
 ```python
-
 matches = client.query_document({"@type"   : "Player",
                                    "position": "Full Back"})
 
 # matches comes back as a iterable that can be convert into a list
 print(list(matches))
-
-
 ```
 
 ```results
-
 [{"@type" : "Player",
   "name" : "Doug",
   "position" : "Full Back"}]
-
-
 ```
 
 <!-- tabs:end -->
