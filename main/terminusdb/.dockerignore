@@ -1,5 +1,0 @@
-.git
-# Prevent temporary emacs files from being included
-*~
-docs
-storage
