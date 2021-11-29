@@ -1,4 +1,4 @@
-# A Document Interface
+# Document Interface Reference
 
 The document interface consists of two endpoints. The first endpoint, `document`, is how we get documents into and out of TerminusDB. Since schemas consist of documents too, this is also how you'd update the schema.
 
@@ -40,7 +40,7 @@ The alternative method uses a POST rather than a get, specifies the header `X-HT
 
 ```jsx
 {
-    "type": "Person",
+    "@rdf:type": "Person",
     "count": 10,
     "query": { "age": 42 },
 }
@@ -158,3 +158,9 @@ POST /api/schema/<resource path>
 | author | | The commit author |
 | message | | The commit message |
 | schema_checking | | Value should be either enabled or disabled |
+
+## See also
+
+### Documents
+
+[Documents](explanation/explanation-documents) in a knowledge graph and how to use them.
