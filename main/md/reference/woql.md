@@ -626,6 +626,23 @@ This is the WOQL schema. It gives a complete specification of the syntax of the 
 
 ---
 
+### InsertDocument
+
+<p class="tdb-f">Insert a document in the graph.</p>
+
+**Class:** `InsertDocument`
+
+**Super class:** `Query`
+
+**Properties:**
+
+| Property | Range  | Desc |
+| -------- | ------ | ---- |
+| `document` | `Value` | The document to insert. Must either have an '@id' or have a class specified key. |
+| `identifier` | `NodeValue` | An optional returned identifier specifying the documentation location. |
+
+---
+
 ### Into
 
 <p class="tdb-f">Change the default write graph (between instance/schema).</p>
@@ -1217,7 +1234,7 @@ This is the WOQL schema. It gives a complete specification of the syntax of the 
 
 | Property | Range  | Desc |
 | -------- | ------ | ---- |
-| `document` | `DataValue` | Variable which will be bound to the document. |
+| `document` | `Value` | Variable which will be bound to the document. |
 | `identifier` | `NodeValue` | The URI of the document to load. |
 
 ---
@@ -1498,7 +1515,7 @@ This is the WOQL schema. It gives a complete specification of the syntax of the 
 
 | Property | Range  | Desc |
 | -------- | ------ | ---- |
-| `document` | `DataValue` | The document to update. Must either have an '@id' or have a class specified key. |
+| `document` | `Value` | The document to update. Must either have an '@id' or have a class specified key. |
 | `identifier` | `NodeValue` | An optional returned identifier specifying the documentation location. |
 
 ---
