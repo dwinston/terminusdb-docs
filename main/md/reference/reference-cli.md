@@ -16,7 +16,392 @@ data ingestion and maintainence.
 terminusdb accepts a command, sometimes followed by a subcommand. The
 accepted commands are given here, along with their arguments.
 
+### help
 
+`terminusdb help`
+
+Display help regarding terminusdb.
+
+  * `-m`, `--markdown`=[value]:
+  generate help as markdown
+
+### test
+
+`terminusdb test OPTIONS`
+
+Run internal TerminusDB tests.
+
+  * `-h`, `--help`=[value]:
+  print help for `test` command
+
+  * `-t`, `--test`=[value]:
+  Run a specific test
+
+### serve
+
+`terminusdb serve OPTIONS`
+
+Run the TerminusDB server.
+
+  * `-h`, `--help`=[value]:
+  Print help for `serve` command
+
+  * `-i`, `--interactive`=[value]:
+  Run server in interactive mode
+
+  * `-m`, `--memory`=[value]:
+  Run server in-memory, without a persistent store. Takes a password as an optional argument. The in-memory store will be initialized with an admin account with the given password. If absent, the admin account will have 'root' as a password.
+
+### list
+
+`terminusdb list OPTIONS`
+
+List databases.
+
+  * `-h`, `--help`=[value]:
+  print help for the `list` command
+
+  * `-j`, `--json`=[value]:
+  Return a JSON as the result of the `list` command
+
+### optimize
+
+`terminusdb optimize OPTIONS`
+
+Optimize a database (including _system and _meta).
+
+  * `-h`, `--help`=[value]:
+  print help for the `optimize` command
+
+### query
+
+`terminusdb query DB_SPEC QUERY OPTIONS`
+
+Query a database.
+
+  * `-h`, `--help`=[value]:
+  print help for the `query` command
+
+  * `-m`, `--message`=[value]:
+  message to associate with the commit
+
+  * `-a`, `--author`=[value]:
+  author to place on the commit
+
+### push
+
+`terminusdb push DB_SPEC`
+
+Push a branch.
+
+  * `-h`, `--help`=[value]:
+  print help for the `push` command
+
+  * `-b`, `--branch`=[value]:
+  set the origin branch for push
+
+  * `-e`, `--remote-branch`=[value]:
+  set the branch on the remote for push
+
+  * `-r`, `--remote`=[value]:
+  the name of the remote to use
+
+  * `-x`, `--prefixes`=[value]:
+  send prefixes for database
+
+  * `-u`, `--user`=[value]:
+  the user on the remote
+
+  * `-p`, `--password`=[value]:
+  the password on the remote
+
+### clone
+
+`terminusdb clone URI <DB_SPEC>`
+
+Clone a database (into DB_SPEC).
+
+  * `-h`, `--help`=[value]:
+  print help for the `clone` command
+
+  * `-u`, `--user`=[value]:
+  the user on the remote
+
+  * `-p`, `--password`=[value]:
+  the password on the remote
+
+  * `-o`, `--organization`=[value]:
+  organizational owner of the cloned database
+
+  * `-l`, `--label`=[value]:
+  label to use for this database
+
+  * `-c`, `--comment`=[value]:
+  long description of the cloned database
+
+  * `-b`, `--public`=[value]:
+  whether the cloned database is to be public
+
+### pull
+
+`terminusdb pull BRANCH_SPEC`
+
+Pull a branch from a database.
+
+  * `-h`, `--help`=[value]:
+  print help for the `pull` command
+
+  * `-e`, `--remote-branch`=[value]:
+  set the branch on the remote for push
+
+  * `-r`, `--remote`=[value]:
+  the name of the remote to use
+
+  * `-u`, `--user`=[value]:
+  the user on the remote
+
+  * `-p`, `--password`=[value]:
+  the password on the remote
+
+### fetch
+
+`terminusdb fetch BRANCH_SPEC`
+
+fetch data from a remote.
+
+  * `-h`, `--help`=[value]:
+  print help for the `fetch` command
+
+  * `-r`, `--remote`=[value]:
+  the name of the remote to use
+
+  * `-u`, `--user`=[value]:
+  the user on the remote
+
+  * `-p`, `--password`=[value]:
+  the password on the remote
+
+### rebase
+
+`terminusdb rebase TO_DATABASE_SPEC FROM_DATABASE_SPEC OPTIONS`
+
+Rebase a database with commits from FROM_DATABASE_SPEC into TO_DATABASE_SPEC.
+
+  * `-h`, `--help`=[value]:
+  print help for the `rebase` command
+
+  * `-a`, `--author`=[value]:
+  The author of the rebase
+
+### rollup
+
+`terminusdb rollup DATABASE_SPEC OPTIONS`
+
+Creates an optimisation layer for queries on the given commit.
+
+  * `-h`, `--help`=[value]:
+  print help for the `rollup` command
+
+### bundle
+
+`terminusdb bundle DATABASE_SPEC OPTIONS`
+
+Create a pack for a given DATABASE_SPEC that can then be reconsistuted with `terminusdb unpack`.
+
+  * `-h`, `--help`=[value]:
+  print help for the `bundle` command
+
+  * `-o`, `--output`=[value]:
+  file name to use for pack output file (defaults to descriptor based name).
+
+### unbundle
+
+`terminusdb unbundle DATABASE_SPEC FILE OPTIONS`
+
+Unbundle a bundle file.
+
+  * `-h`, `--help`=[value]:
+  print help for the `unbundle` command
+
+### branch create
+
+`terminusdb branch create BRANCH_SPEC OPTIONS`
+
+Create a branch.
+
+  * `-h`, `--help`=[value]:
+  print help for the `branch create` sub command
+
+  * `-o`, `--origin`=[value]:
+  the origin branch to use
+
+### branch delete
+
+`terminusdb branch delete BRANCH_SPEC OPTIONS`
+
+Delete a branch.
+
+  * `-h`, `--help`=[value]:
+  print help for the `branch delete` sub command
+
+### db create
+
+`terminusdb db create DATABASE_SPEC OPTIONS`
+
+Create a database.
+
+  * `-h`, `--help`=[value]:
+  print help for the `db create` sub command
+
+  * `-o`, `--organization`=[value]:
+  organizational owner of the database
+
+  * `-l`, `--label`=[value]:
+  label to use for this database
+
+  * `-c`, `--comment`=[value]:
+  long description of this database
+
+  * `-p`, `--public`=[value]:
+  whether this database is to be public
+
+  * `-k`, `--schema`=[value]:
+  whether to use a schema
+
+  * `-d`, `--data-prefix`=[value]:
+  uri prefix to use for data
+
+  * `-s`, `--schema-prefix`=[value]:
+  uri prefix to use for schema
+
+  * `-x`, `--prefixes`=[value]:
+  additional defined prefixes in JSON
+
+### db delete
+
+`terminusdb db delete DATABASE_SPEC OPTIONS`
+
+Delete a database.
+
+  * `-h`, `--help`=[value]:
+  print help for the `db delete` sub command
+
+  * `-o`, `--organization`=[value]:
+  organizational owner of the database
+
+  * `-f`, `--force`=[value]:
+  force the deletion of the database (unsafe)
+
+### store init
+
+`terminusdb store init OPTIONS`
+
+Initialize a store for TerminusDB.
+
+  * `-h`, `--help`=[value]:
+  print help for the `store init` sub command
+
+  * `-k`, `--key`=[value]:
+  key to use for admin login
+
+  * `-f`, `--force`=[value]:
+  force the creation of a new store even when one already exists
+
+### triples dump
+
+`terminusdb triples dump GRAPH_SPEC`
+
+Dump an RDF string.
+
+  * `-h`, `--help`=[value]:
+  print help for the `triples dump` sub command
+
+  * `-f`, `--format`=[value]:
+  format of RDF (can be one of: [turtle])
+
+### triples update
+
+`terminusdb triples update GRAPH_SPEC FILE`
+
+Update from an RDF file (replaces current content).
+
+  * `-h`, `--help`=[value]:
+  print help for the `triples update` sub command
+
+  * `-m`, `--message`=[value]:
+  message to associate with the commit
+
+  * `-a`, `--author`=[value]:
+  author to place on the commit
+
+  * `-f`, `--format`=[value]:
+  format of RDF (can be one of: [turtle])
+
+### triples load
+
+`terminusdb triples load GRAPH_SPEC FILE`
+
+Load triples from RDF file (Appending new).
+
+  * `-h`, `--help`=[value]:
+  print help for the `triples load` sub command
+
+  * `-m`, `--message`=[value]:
+  message to associate with the commit
+
+  * `-a`, `--author`=[value]:
+  author to place on the commit
+
+  * `-f`, `--format`=[value]:
+  format of RDF (can be one of: [turtle])
+
+### remote add
+
+`terminusdb remote add DATABASE_SPEC REMOTE_NAME REMOTE_LOCATION OPTIONS`
+
+Add a remote.
+
+  * `-h`, `--help`=[value]:
+  print help for the `remote add` sub command
+
+### remote remove
+
+`terminusdb remote delete DATABASE_SPEC REMOTE_NAME OPTIONS`
+
+Remove a remote.
+
+  * `-h`, `--help`=[value]:
+  print help for the `remote remove` sub command
+
+### remote set-url
+
+`terminusdb remote set-url DATABASE_SPEC REMOTE_NAME REMOTE_LOCATION OPTIONS`
+
+Set the URL of a remote.
+
+  * `-h`, `--help`=[value]:
+  print help for the `remote set-url` sub command
+
+### remote get-url
+
+`terminusdb remote get-url DATABASE_SPEC REMOTE_NAME OPTIONS`
+
+Get the URL of a remote.
+
+  * `-h`, `--help`=[value]:
+  print help for the `remote get-url` sub command
+
+  * `-r`, `--remote`=[value]:
+  the name of the remote to use
+
+### remote list
+
+`terminusdb remote list DATABASE_SPEC OPTIONS`
+
+List remotes.
+
+  * `-h`, `--help`=[value]:
+  print help for the `remote list` sub command
 
 ## SYNTAX
 
