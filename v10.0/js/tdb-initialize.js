@@ -1,25 +1,48 @@
-function tdb_init() 
+function tdb_checkLocalStore()
 {
+    if (tdb_localStore()) 
+    {
+        //  Include search plugin if local storage is enabled.
+
+        var script = document.createElement('script');
+
+        script.src = 'https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js';
+        script.async = false;
+            
+        document.head.appendChild(script);
+    }
+}
+
+function tdb_localStore() 
+{
+    try 
+    {
+      localStorage.setItem('x', 'x');
+      localStorage.removeItem('x');
+
+      return true;
+    } 
+    catch (e)
+    { 
+      return false;
+    }
+}
+
+function tdb_title() 
+{
+    const cSfx = " - TerminusDB Docs";
+
     // Set title and hide navbar on home page.
 
-    const cSfx = " - TerminusDB Docs";
-    
     if (location.hash == "#/")
     {
         document.title = `Home${cSfx}`;
         
-        tdb_nav_hide();
+        tdb_cvrHide("nav");
+        tdb_cvrHide("theme");
     }
     else
         document.title += cSfx;
-}
-
-function tdb_nav_hide()
-{
-    var e = document.getElementById("id-nav");
-        
-    if (typeof(e) != 'undefined' && e != null)
-        e.style.visibility = "hidden";
 }
 
 function tdb_adjust()
@@ -31,25 +54,10 @@ function tdb_adjust()
     d.float      = "left";
 }
 
-function tdb_theme()
+function tdb_theme(t) 
 {
-    return;
+    var cssLnk = document.getElementsByTagName("link").item(3);
+    const cssList = ["dark", "light"];
 
-    document.documentElement.style.setProperty('--base-background-color', 'rgb(250, 250, 250)'); 
-
-    document.documentElement.style.setProperty('--heading-color', 'rgb(0, 0, 0)');
-
-    document.documentElement.style.setProperty('--sidebar-background', 'rgb(200, 200, 200)');
-    
-    document.documentElement.style.setProperty('--link-color', 'orangered');
-
-    document.documentElement.style.setProperty('--pagination-label-color', 'rgb(0, 0, 0)'); 
-
-    document.documentElement.style.setProperty('--blockquote-background', 'rgb(240, 240, 240)');
-
-    document.documentElement.style.setProperty('--table-row-odd-background', 'rgb(240, 240, 240)');
-
-    document.documentElement.style.setProperty('--base-color', 'rgb(50, 50, 50)');
-
-    document.documentElement.style.setProperty('--table-cell-border-color', 'rgb(200, 200, 200)');
+    cssLnk.href = `css/terminusdb-docs-${cssList[t]}.css`;
 }
