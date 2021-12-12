@@ -1,3 +1,3 @@
-# TerminusDB Documentation (Main)
+# TerminusDB Documentation
 
 The current TerminusDB documentation production branch.
