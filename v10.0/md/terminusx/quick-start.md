@@ -1,6 +1,8 @@
-# Quick Start
+# Overviews
 
-> **On this page:** Links to get started quickly with TerminusX.
+<div class="tdb-bgi tdb-landing-bg"></div>
+
+> **On this page:** Links to getting started quickly with TerminusX.
 
 ## Get Your API Key
 
