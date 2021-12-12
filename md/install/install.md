@@ -1,5 +1,7 @@
 # Installation Options
 
+<div class="tdb-bgi tdb-landing-bg"></div>
+
 > **On this page:** Links to the ways of installing TerminusDB.
 
 ## Install from source code

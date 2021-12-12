@@ -20,9 +20,9 @@ npm install --save @terminusdb/terminusdb-client
 
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Install the Python client using pip.
 
-Using a virtural environment is highly recommended. See full details in [Python documentation](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/).
+Using a virtural environment is recommended - see [Python documentation](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/).
 
-**Create a new virtual environment call terminusdb-env**
+**Create a new virtual environment named terminusdb-env**
 
 ```bash
 python3 -m venv terminusdb-env
@@ -30,19 +30,19 @@ python3 -m venv terminusdb-env
 
 **Activate terminusdb-env environment**
 
- - for Unix/macOS
+Unix/macOS:
 
 ```bash
 source terminusdb-env/bin/activate
 ```
 
-- for Windows
+Windows:
 
 ```bash
 .\terminusdb-env\Scripts\activate
 ```
 
-**Installing the Python client**
+**Install the Python client**
 
 ```bash
 python3 -m pip install terminusdb-client
@@ -462,6 +462,65 @@ print(list(matches))
 ```
 
 <!-- tabs:end -->
+
+#### Code: Query documents using WOQL
+
+Query documents using Web Object Query Language (WOQL) to get same result given by the above example. You can find more about WOQL [here](explanation/explanation-woql).
+
+<!-- tabs:start -->
+
+### **JavaScript**
+
+<i class="tdb-i">![info](../../img/ico/terminusdb-icon-node-js.png)</i>Get documents using using `WOQL.triple()` to create a WOQL query then execute that query using `client.query()`. Results, stored in `results`, are shown further below. 
+
+```javascript
+const queryDocuments = async () => {
+  const { WOQL } = TerminusDBClient;
+    const query = WOQL.triple(
+      "v:Player",
+      "position",
+      WOQL.string("Full Back")
+    ).triple("v:Player", "position", "v:position");
+  const results = await client.query(query);
+  console.log("Query Documents using WOQL: ",results.bindings);
+}
+```
+
+```results
+[
+  {
+    Player: 'Player/Doug',
+    position: { '@type': 'xsd:string', '@value': 'Full Back' }
+  }
+]
+```
+
+### **Python**
+
+<i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Get documents using `WOQLQuery()` and `WOQLQuery().triple()` to create a WOQL query then execute that query using `client.query()`. Results, stored in `results`, are shown further below.  
+
+```python
+WOQL = WOQLQuery()
+query = WOQL.triple("v:Player", "position", WOQL.string("Full Back")).triple(
+    "v:Player", "position", "v:position"
+)
+results = client.query(query)
+print("Specific document using WOQL")
+# results['bindings'] holds the query output as a list
+print(results['bindings'])
+```
+
+```results
+[
+  {
+    Player: 'Player/Doug',
+    position: { '@type': 'xsd:string', '@value': 'Full Back' }
+  }
+]
+```
+
+<!-- tabs:end -->
+
 
 ## See also
 
