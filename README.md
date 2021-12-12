@@ -1,3 +1,3 @@
-# TerminusDB Documentation (Next)
+# TerminusDB Documentation (Main)
 
-This is in-progress work on the next phase of TerminusDB documentation.
+The current TerminusDB documentation production branch.
