@@ -1,6 +1,6 @@
 # How-to Guides
 
-> **On this page:** How-to guides for perform various operations in TerminusDB.
+> **On this page:** How-to guides for performing various operations in TerminusDB.
 <!--
 ## Add a Date and Time
 
