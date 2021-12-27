@@ -36,11 +36,11 @@ Empower domain teams to deliver results and products rapidly through collaborati
 
 ### Reduced data discovery time 
 
-Unprecedented data transparency enabling you to rapidly discover the value of your data. You have complete visibility and audit of data changes across your entire data ecosystem.
+Unprecedented data transparency enables you to rapidly discover the value of your data. You have complete visibility and audit of data changes across your entire data ecosystem.
 
 ### Greater data quality and innovation
 
-A robust, quality data foundation providing better predictions, insights, and answers, while enabling you to safely experiment with data and schema.
+A robust, quality data foundation provides better predictions, insights, and answers while enabling you to safely experiment with data and schema.
 
 ### Increased data stability
 
