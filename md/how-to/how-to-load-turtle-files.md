@@ -2,7 +2,7 @@
 
 ## NOTE on update/load
 
-Update triples will completely replce the contents of the current
+Update triples will completely replace the contents of the current
 graph with the new contents supplied in the turtle file by creating an
 appropriate delta. If you want to append to the current graph, simply
 replace `update` with `load` (and `update_triples` with
