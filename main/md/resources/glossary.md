@@ -1,10 +1,10 @@
 # Glossary
 
-> **On this page:** A definition of frequently occuring terms and acronyms in this documentation site.
+> **On this page:** A definition of frequently occurring terms and acronyms in this documentation site.
 
 ?> **Context:** Unless otherwise stated, the context for all glossary definitions is computer, data, or information science.
 
-?> **Source:** Unless otherwise stated, the source of all defintions is [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)
+?> **Source:** Unless otherwise stated, the source of all definitions is [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)
 
 ## Graph concepts
 
@@ -24,7 +24,7 @@ A database that uses [graph structures](#graph-structure) for [semantic queries]
 
 An abstract data type for implementing the [graph theory](graph-theory) concepts of [Undirected](#undirected-graph) and [Directed](#directed-graph) graphs. The former concept consists of **uordered pairs** of vertices (also called [nodes](#node) or points.) The latter consists of **ordered pairs** of vertices.
 
-A graph data structure consists of a finite set of vertices, together with a set of unordered or ordered pairs of these vertices as defined above. These pairs are known as [edges](#edge) (also called links or lines, and sometimes called arrows or arcs for a directed graph.) The vertices may be part of the graph structure, or may be external [entities](#entity) represented by integer indices or references.
+A graph data structure consists of a finite set of vertices, together with a set of unordered or ordered pairs of these vertices as defined above. These pairs are known as [edges](#edge) (also called links or lines, and sometimes called arrows or arcs for a directed graph.) The vertices may be part of the graph structure or maybe external [entities](#entity) represented by integer indices or references.
 
 A graph data structure may also associate an edge value to each edge, such as a symbolic label or a numeric attribute (cost, capacity, length, etc.)
 
@@ -41,13 +41,13 @@ A directed graph (or **digraph**) is a graph made up of vertices connected by di
 
 ### Ontology
 
-A way of showing the properties of a subject area and how they are related, by defining a set of concepts and categories that represent the subject. An ontology encompasses a representation, formal naming and definition of the categories, properties and relations between the concepts, data and entities that substantiate one, many, or all [domains](#domain) of discourse. 
+A way of showing the properties of a subject area and how they are related, by defining a set of concepts and categories that represent the subject. An ontology encompasses a representation, formal naming, and definition of the categories, properties, and relations between the concepts, data, and entities that substantiate one, many, or all [domains](#domain) of discourse. 
 
 [Read more](https://en.wikipedia.org/wiki/Ontology_(information_science))
 
 ### Semantic Query
 
-Semantic queries allow for queries and analytics of an associative and contextual nature. Semantic queries enable the retrieval of both explicitly and implicitly derived information based on syntactic, semantic and structural information contained in data. They are designed to deliver precise results (possibly the distinctive selection of one single piece of information) or to answer more fuzzy and wide open questions through pattern matching and digital reasoning.
+Semantic queries allow for queries and analytics of an associative and contextual nature. Semantic queries enable the retrieval of both explicitly and implicitly derived information based on syntactic, semantic, and structural information contained in data. They are designed to deliver precise results (possibly the distinctive selection of one single piece of information) or to answer more fuzzy and wide-open questions through pattern matching and digital reasoning.
 
 [Read more](https://en.wikipedia.org/wiki/Semantic_query)
 
@@ -143,7 +143,7 @@ WOQL (**web object Query Language**) is TerminusDB's query language for querying
 
 ### Immutable
 
-In programming, the state of an immutable object is unchangeable, i.e., its state cannot be modified after it is created. In TerminusDB, **immutable data** means an instance of data that cannot be changed after it is created. Newer instances or versions of that data can be created, but the preceeding version is immutable. 
+In programming, the state of an immutable object is unchangeable, i.e., its state cannot be modified after it is created. In TerminusDB, **immutable data** means an instance of data that cannot be changed after it is created. Newer instances or versions of that data can be created, but the preceding version is immutable. 
 
 [Read more](https://en.wikipedia.org/wiki/Immutable_object)
 
@@ -155,13 +155,13 @@ In contrast to an [immutable](#immutable) object, a mutable object is changeable
 
 ### PCRE
 
-**Perl Compatible Regular Expressions** (PCRE) is a library which implements a regular expression engine, inspired by the capabilities of the Perl programming language. PCRE's syntax is more powerful and flexible than many other regular-expression libraries.
+**Perl Compatible Regular Expressions** (PCRE) is a library that implements a regular expression engine, inspired by the capabilities of the Perl programming language. PCRE's syntax is more powerful and flexible than many other regular-expression libraries.
 
 [Read more](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions)
 
 ### IRI
 
-The **Internationalized Resource Identifier** (IRI) is an internet protocol standard which builds on the Uniform Resource Identifier (URI) protocol by greatly expanding the set of permitted characters. IRIs extend URIs by using the Universal Character Set, where URIs were limited to ASCII, with far fewer characters. IRIs may be represented by a sequence of octets but by definition are defined as a sequence of characters, because IRIs may be spoken or written by hand.
+The **Internationalized Resource Identifier** (IRI) is an internet protocol standard that builds on the Uniform Resource Identifier (URI) protocol by greatly expanding the set of permitted characters. IRIs extend URIs by using the Universal Character Set, where URIs were limited to ASCII, with far fewer characters. IRIs may be represented by a sequence of octets but by definition are defined as a sequence of characters, because IRIs may be spoken or written by hand.
 
 [Read more](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier)
 
