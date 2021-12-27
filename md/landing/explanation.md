@@ -28,7 +28,7 @@ An introduction to the hierarchy and system of graphs used by TerminusDB for col
 
 ## Immutability
 
-An explanation of how TerminusDB implements immutability, and handles deleted and new data.  
+An explanation of how TerminusDB implements immutability and handles deleted and new data.  
 
 [Immutability](explanation/explanation-immutability)
 
