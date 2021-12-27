@@ -4,7 +4,7 @@
 
 ## Get Your API Key
 
-Get your API key and configure your enviroment to use the your client.   
+Get your API key and configure your environment to use your client.   
 
 [Get Your API Key](terminusx/get-your-api-key)
 
