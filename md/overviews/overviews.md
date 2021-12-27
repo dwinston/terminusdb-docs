@@ -10,7 +10,6 @@ A high-level description of what TerminusDB is, reasons for using TerminusDB, an
 
 ## Get started
 
-An overview of the ways to get started with TerminusDB.
+An overview of ways to get started with TerminusDB.
 
 [Get Started](overviews/get-started)
-
