@@ -14,7 +14,7 @@ The TerminusX Documentation interface enables you to interact with TerminusX usi
 
 [Schema](reference/reference-schema) for document specification using JSON-based syntax.     
 
-[CURL](reference/reference-curl) to build your own client or use the document interface from CURL. 
+[CURL](reference/reference-curl) to build your client or use the document interface from CURL. 
 
 [Document API](reference/reference-document-interface) a detailed document interface API reference.
 

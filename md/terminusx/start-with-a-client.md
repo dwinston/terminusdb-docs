@@ -22,7 +22,7 @@ npm install --save @terminusdb/terminusdb-client
 
 <i class="tdb-i">![info](../../img/ico/terminusdb-icon-python.png)</i>Install the Python client using pip.
 
-Using a virtural environment is recommended - see [Python documentation](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/).
+Using a virtual environment is recommended - see [Python documentation](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/).
 
 **Create a new virtual environment named terminusdb-env**
 
@@ -372,7 +372,7 @@ const getDocs = async () => {
 ```python
 documents = client.get_all_documents()
 
-# documents comes back as a iterable that can be convert into a list
+# documents come back as an iterable that can be converted into a list
 print("All documents")
 print(list(documents))
 
@@ -453,7 +453,7 @@ const queryDocuments = async () => {
 matches = client.query_document({"@type"   : "Player",
                                    "position": "Full Back"})
 
-# matches comes back as a iterable that can be convert into a list
+# matches comes back as an iterable that can be converted into a list
 print(list(matches))
 ```
 
@@ -467,7 +467,7 @@ print(list(matches))
 
 #### Code: Query documents using WOQL
 
-Query documents using Web Object Query Language (WOQL) to get same result given by the above example. You can find more about WOQL [here](explanation/explanation-woql).
+Query documents using Web Object Query Language (WOQL) to get the same result given by the above example. You can find more about WOQL [here](explanation/explanation-woql).
 
 <!-- tabs:start -->
 
