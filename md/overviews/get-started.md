@@ -1,6 +1,6 @@
 # Get Started
 
-> **On this page:** An overview of the ways to get started with TerminusDB. 
+> **On this page:** An overview of ways to get started with TerminusDB. 
 
 ## Key topics
 
@@ -30,7 +30,7 @@ Create, query, and maintain your databases using several [programmatic interface
 
 Interaction with TerminusDB databases is through the TerminusBD Server. The server provides a **RESTful** API using the **JSON-LD** exchange format. This enables you to develop applications with your toolchain to utilize the powerful features of graph search and storage. 
 
-To install a TerminusDB server and use TerminusDB databases programmatically in your applications, the installation options below are available. Click on an option for detailed install instructions.
+To install a TerminusDB server and use TerminusDB databases programmatically in your applications, the installation options below are available. Click an option for detailed install instructions.
 
 ### Source code
 
