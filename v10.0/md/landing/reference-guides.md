@@ -44,8 +44,8 @@ JavaScript client and Web Object Query Language (WOQL) reference guides and tuto
 
 [JavaScript Reference](reference/reference-client)
 
-## Phython Client Reference
+## Python Client Reference
 
-Phython client and Web Object Query Language (WOQL) reference guides and tutorials.
+Python client and Web Object Query Language (WOQL) reference guides and tutorials.
 
 [Python Reference](reference/reference-client)

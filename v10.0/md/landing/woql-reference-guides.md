@@ -14,8 +14,8 @@ JavaScript client WOQL reference guides and tutorials.
 
 [JavaScript Client WOQL Reference](reference/reference-client)
 
-## Phython Client WOQL Reference
+## Python Client WOQL Reference
 
-Phython client WOQL reference guides and tutorials.
+Python client WOQL reference guides and tutorials.
 
 [Python Client WOQL Reference](reference/reference-client)
